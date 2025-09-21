@@ -26,17 +26,38 @@ st.divider()
 # ===========================
 st.header("📋 Customer Information")
 
-col1, col2 = st.columns(2)
+# ==== Row 1 ====
+row1_col1, row1_col2, row1_col3 = st.columns([1,1,1])
 
-with col1:
-    limit_bal = st.number_input("💰 Credit Limit Balance", min_value=0, max_value=1000000, step=1000, help="Total credit limit assigned to the customer.")
-    age = st.number_input("🎂 Age", min_value=18, max_value=100, step=1, help="Age of the customer.")
-    gender = st.radio("🧑 Gender", ["Male", "Female"])
-    education = st.radio("🎓 Education Level", ["Graduate School", "University", "High School", "Others"])
-    marriage = st.radio("💍 Marital Status", ["Married", "Single", "Others"])
+with row1_col1:
+    limit_bal = st.number_input("💰 Credit Limit Balance", min_value=0, max_value=1000000, step=1000, help="Range 0 to 1,000,000")
 
-with col2:
-    credit_score = st.number_input("⭐ Credit Score", min_value=0, max_value=1000, step=1, help="Customer credit score (engineered feature).")
+with row1_col2:
+    age = st.number_input("🎂 Age", min_value=18, max_value=100, step=1, help="Range 18 to 100")
+
+with row1_col3:
+    credit_score = st.number_input("⭐ Credit Score", min_value=0, max_value=1000, step=1, help="Range 0 to 1000")
+
+# ==== Row 2 ====
+row2_col1, row2_col2, row2_col3 = st.columns([1,1,1])
+
+with row2_col1:
+    gender = st.selectbox(
+        "🧑 Gender",
+        ["👨 Male", "👩 Female"]
+    )
+
+with row2_col2:
+    education = st.selectbox(
+        "🎓 Education Level",
+        ["🎓 Graduate School", "🏫 University", "🏢 High School", "📚 Others"]
+    )
+
+with row2_col3:
+    marriage = st.selectbox(
+        "💍 Marital Status",
+        ["💑 Married", "🧑 Single", "🤝 Others"]
+    )
 
 # ===========================
 # Payment History
